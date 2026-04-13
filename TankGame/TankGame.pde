@@ -1,6 +1,6 @@
 // April 1 2026 | TankGame by Aaditya Kuberan
 Tank t1;
-Obstacle o1;
+Obstacle o1,o2,o3;
 PImage bg;
 
 void setup() {
@@ -8,15 +8,19 @@ void setup() {
   bg = loadImage("background.png");
   t1 = new Tank();
   o1 = new Obstacle(400, 100, 100, 50, 5, 100);
+  o2 = new Obstacle(200, 100, 100, 50, 5, 100);
+  o3 = new Obstacle(200, 400, 100, 50, 5, 100);
 }
 
 void draw() {
   background(127);
   imageMode(CORNER);
   image(bg, 0, 0);
-  t1.display(d);
+  t1.display();
   o1.display();
-  o1.move;
+  o2.display();
+  o3.display();
+  //o1.move;
 }
 
 void keyPressed() {
