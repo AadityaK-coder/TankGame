@@ -18,7 +18,7 @@ class Obstacle {
   
   void display() {
     fill(128);
-    image(obs,speed,health);
+    image(obs,x,y);
   }
   
   void move() {
