@@ -1,12 +1,15 @@
 // April 1 2026 | TankGame by Aaditya Kuberan
 Tank t1;
+ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 Obstacle o1;
 Obstacle o2;
 Obstacle o3;
 PImage bg;
+int score;
 
 void setup() {
   size(500, 500);
+  score = 0;
   bg = loadImage("background.png");
   t1 = new Tank();
   o1 = new Obstacle(400, 100, 100, 50, 5, 100);
@@ -18,6 +21,11 @@ void draw() {
   background(127);
   imageMode(CORNER);
   image(bg, 0, 0);
+  for (int i = 0; i < projectiles.size(); i++) {
+    Projectile p = projectiles.get(i);
+    p.display();
+    p.move();
+  }
   t1.display();
   o1.display();
   o2.display();
@@ -25,7 +33,7 @@ void draw() {
   o1.move();
   o2.move();
   o3.move();
-
+  scorePanel();
 }
 
 void keyPressed() {
@@ -38,4 +46,19 @@ void keyPressed() {
   } else if (key == 'd') {
     t1.move('d');
   }
+}
+
+void mousePressed() {
+  projectiles.add(new Projectile(t1.x,t1.y,4,10));
+}
+
+void scorePanel() {
+  fill(127,200);
+  rectMode(CENTER);
+  noStroke();
+  rect(width/2,15,width,30);
+  fill(255);
+  textSize(30);
+  textAlign(CENTER);
+  text("Score:" + score,width/2,25);
 }
