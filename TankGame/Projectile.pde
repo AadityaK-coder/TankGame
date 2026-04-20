@@ -24,8 +24,14 @@ class Projectile {
   void move() {
     x+= vx;
     y +=vy;
-    }
   }
   
-  void fire() {
+  boolean intersect(Obstacle o) {
+    float distance = dist(x,y,o.x,o.y);
+    if(distance < 60) {
+      return true;
+    } else {
+      return false;
+    }
   }
+}
