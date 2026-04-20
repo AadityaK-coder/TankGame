@@ -1,14 +1,19 @@
 class Projectile {
   // Member Variable
   float x, y, w, h, speed;
+  float vx, vy;
+  char dir;
   
   // Constructor
-  Projectile(float x, float y, float w, float h) {
+  Projectile(float x, float y, float vx, float vy) {
     this.x = x;
     this.y = y;
-    this.w = w;
-    this.h = h;
+    this.vx = vx;
+    this.vy = vy;
+    this.w = 10;
+    this.h = 10;
     speed = 8;
+    dir = 'u';
   }
   
   void display() {
@@ -17,7 +22,8 @@ class Projectile {
   }
   
   void move() {
-    y=y-speed;
+    x+= vx;
+    y +=vy;
     }
   }
   
