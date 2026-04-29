@@ -1,3 +1,5 @@
+// by Daniel Shifman
+
 class Timer {
 
   int savedTime; // When Timer started
@@ -13,9 +15,9 @@ class Timer {
     savedTime = millis();
   }
 
-  // The function isFinished() returns true if 5,000 ms have passed. 
+  // The function isFinished() returns true if 5,000 ms have passed.
   // The work of the timer is farmed out to this method.
-  boolean isFinished() { 
+  boolean isFinished() {
     // Check how much time has passed
     int passedTime = millis()- savedTime;
     if (passedTime > totalTime) {

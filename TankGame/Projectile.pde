@@ -1,10 +1,8 @@
 class Projectile {
-  // Member Variable
   float x, y, w, h, speed;
   float vx, vy;
   char dir;
-  
-  // Constructor
+
   Projectile(float x, float y, float vx, float vy) {
     this.x = x;
     this.y = y;
@@ -15,23 +13,27 @@ class Projectile {
     speed = 8;
     dir = 'u';
   }
-  
+
   void display() {
-    fill(255,0,0);
-    rect(x,y,w,h);
+    fill(255, 0, 0);
+    rect(x, y, w, h);
   }
-  
+
   void move() {
-    x+= vx;
+    x += vx;
     y +=vy;
   }
-  
+
   boolean intersect(Obstacle o) {
-    float distance = dist(x,y,o.x,o.y);
-    if(distance < 60) {
+    float distance = dist(x, y, o.x, o.y);
+    if (distance < 30) {
       return true;
     } else {
       return false;
     }
+  }
+  boolean reachedEdge() {
+    // Uses Processing's built-in width and height variables
+    return (x <= 0 || x >= width || y <= 0 || y >= height);
   }
 }
