@@ -31,7 +31,6 @@ class Obstacle {
   void fire() {
   }
   boolean reachedSide() {
-    // Returns true if the obstacle touches the edges of the screen
     return (x < -200 || x >= width + 200 || y < -200 || y >= height+200);
   }
 }

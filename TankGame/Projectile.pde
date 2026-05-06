@@ -33,7 +33,6 @@ class Projectile {
     }
   }
   boolean reachedEdge() {
-    // Uses Processing's built-in width and height variables
     return (x <= 0 || x >= width || y <= 0 || y >= height);
   }
 }
